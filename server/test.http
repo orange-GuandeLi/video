@@ -3,3 +3,6 @@ POST http://localhost:3000
 {
   "title": "test"
 }
+
+### 获取所有
+GET http://localhost:3000/api/todo
