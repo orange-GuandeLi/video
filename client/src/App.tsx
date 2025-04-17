@@ -14,6 +14,20 @@ function App() {
     setAll(json);
   }
 
+  const insertOne = async () => {
+    const res = await client.api.todo.$post({
+      json: {
+        title: ""
+      }
+    });
+    if (!res.ok) {
+      console.log(await res.text());
+    }
+
+    const json = await res.json();
+    console.log(json);
+  }
+
   return (
     <>
       <button onClick={getAll}>获取所有todo</button>
@@ -22,7 +36,7 @@ function App() {
           JSON.stringify(all, null, 2)
         }
       </pre>
-      <button>新建一个todo</button>
+      <button onClick={insertOne}>新建一个todo</button>
     </>
   )
 }
